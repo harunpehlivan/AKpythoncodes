@@ -9,10 +9,7 @@ for files in listoffiles:
     name,extension=os.path.splitext(files)
     print(files)
     extension=extension[1:]
-    
-    if os.path.exists(path+'/'+extension):
-       shutil.move(path+'/'+files,path+'/'+extension+'/'+files)
-       
-    else:
+
+    if not os.path.exists(path + '/' + extension):
         os.makedirs(path+'/'+extension)
-        shutil.move(path+'/'+files,path+'/'+extension+'/'+files)
+    shutil.move(path+'/'+files,path+'/'+extension+'/'+files)
